@@ -19,7 +19,7 @@ function draw() {
   ellipse(width/2, 200, 200);
   textSize(80);
   fill(0);
-  text("😊", width/2, 200);
+  text("O", width/2, 200);
 
   if (floatA > 0) {
     fill(255, floatA);
