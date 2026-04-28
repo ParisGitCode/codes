@@ -19,6 +19,7 @@ I’m not too experienced in making music so I tried a couple notes on Bandlab, 
 I designing and drew all the custom character graphics, I initially wanted them to be really detailed, like animated characters but ultimately it was rather out of place for the type of project.
 
 My sources of inspiration were:
-There's a game called Clicker Heroes on Cool Math Games that I used to play, which was really my first introduction to these type of game. It's a little unheard of but it definitely was something I had in mind while making this.
 
-Similarly, another website I had seen some time ago that my sister had shown me, it was a GitHub project and it was like a blob of slime, that would sort of indent and respond to the mouse's motion. I can't remember the name of it (or if it's even still up) but it was incredibly fascinating to me.
+- There's a game called Clicker Heroes on Cool Math Games that I used to play, which was really my first introduction to these type of game. It's a little unheard of but it definitely was something I had in mind while making this.
+
+- Similarly, another website I had seen some time ago that my sister had shown me, it was a GitHub project and it was like a blob of slime, that would sort of indent and respond to the mouse's motion. I can't remember the name of it (or if it's even still up) but it was incredibly fascinating to me.
