@@ -1,4 +1,7 @@
 //REMEMBER TO MANUALLY PUT EVEEYTHING FROM VISUAL STUDIO, IT'S NOT SYNCED
+
+background(255, 105, 180); // for background colour
+
 let score = 0;
 let perClick = 1;
 let floatText = "";
