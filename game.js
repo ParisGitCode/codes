@@ -146,7 +146,6 @@ function drawGame() {
   if (timeLeft <= 0) {
     timeLeft = 0;
     letthegamesbegin = "gameover";
-  }
 
   //  here spawn a new emoji every second. millis()  gives me the number of milliseconds from since the code started running.
 // i’m using it like a timer so it can count down in the game (not sure if there's a more efficient way to do it but this just worked for me.)
@@ -157,7 +156,7 @@ function drawGame() {
     spawnEmoji();
   }
 }
-
+}
   // so here the emoji is being drawn
   imageMode(CENTER);
   image(currentEmoji, emojiX, emojiY, shrinkSize, shrinkSize); // i alterred the image with the coordinates and values
