@@ -33,12 +33,27 @@ function draw() {
   let b = 150;
 
   background(r, g, b); // trying to make the background colour change with the mouse movement
-}
-
   // the array that stores all my emoji images
 // originally I loaded each one manually, but it got messy, so I switched to an array + loop
  // loads the click sound before the game starts
 
+// here i did the shrinking if statement, it starts the shrinking animation instead of instantly changing emoji
+  // because i wanted something that indicated that something had been clicked,
+    // i sort of regret this decision though because most of my bugs come from this shrinking feature, but i just felt the click sound effect wasnt enough.
+  if (shrinking) {
+    shrinkSize -= 10; // this -= 10 is something i learnt along the way, basically it reduces 10 from the original emoji size.
+
+    // once it's shrunken to 0 then another emoji is triggered. for some reason the if statement wasn't working but i managed to get it to work, 
+    if (shrinkSize <= 0) {
+      shrinking = false; // this STOPS the emoji from shrinking so it doesnt shrink forever. 
+      shrinkSize = emojiSize; // reset size
+      spawnEmoji();
+    }
+  } else {
+    shrinkSize = emojiSize; // this is normal size of the emoji when not shrinking
+  }
+  
+  
 function preload() {
   // preload runs before setup and is where I load all external files
   // I’m loading all the emoji images here so the game doesn’t lag later
@@ -141,22 +156,7 @@ function drawGame() {
 // so if more than 1000 milliseconds have passed, I know it's time to spawn another emoji since that's a second. its 1 emoji per second
     spawnEmoji();
   }
-
-// here i did the shrinking if statement, it starts the shrinking animation instead of instantly changing emoji
-  // because i wanted something that indicated that something had been clicked,
-    // i sort of regret this decision though because most of my bugs come from this shrinking feature, but i just felt the click sound effect wasnt enough.
-  if (shrinking) {
-    shrinkSize -= 10; // this -= 10 is something i learnt along the way, basically it reduces 10 from the original emoji size.
-
-    // once it's shrunken to 0 then another emoji is triggered. for some reason the if statement wasn't working but i managed to get it to work, 
-    if (shrinkSize <= 0) {
-      shrinking = false; // this STOPS the emoji from shrinking so it doesnt shrink forever. 
-      shrinkSize = emojiSize; // reset size
-      spawnEmoji();
-    }
-  } else {
-    shrinkSize = emojiSize; // this is normal size of the emoji when not shrinking
-  }
+}
 
   // so here the emoji is being drawn
   imageMode(CENTER);
@@ -192,6 +192,7 @@ function spawnEmoji() {
   emojiY = random(150, height - 150);
 
   lastSpawnTime = millis(); // i have to add this line so my code doesn't break, this is what's causing the issues because it doesn't know the last time something happened.
+}
 
 function mousePressed() { // mousePressed() behaves differently depending on which screen the player is on.
 // I used letthegamesbegin for indicating which part of the game the focus is on.
