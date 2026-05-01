@@ -1,5 +1,21 @@
 //REMEMBER TO MANUALLY PUT EVEEYTHING FROM VISUAL STUDIO, IT'S NOT SYNCED
 
+// notes: add background motion later
+
+
+let clickSound;
+
+function preload() {
+  clickSound = loadSound("click.mp3");
+  // for click sound effect when the emoji is clicked
+}
+
+function mousePressed() {
+  if (dist(mouseX, mouseY, width/2, 200) < 100) { // for when the mouse is in the range of the emoji they're clicking on, i just put a range instead since i didn't know how else to
+    clickSound.play();
+  }
+}
+
 background(255, 105, 180); // for background colour
 
 let score = 0;
