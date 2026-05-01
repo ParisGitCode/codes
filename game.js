@@ -154,9 +154,6 @@ function drawGame() {
   if (millis() - lastSpawnTime > 1000) {   // UPDATE!! FRAMECOUNT IS ANOTHER WAY but i don't know how to do it and honestly this one just works.
 // so if more than 1000 milliseconds have passed, I know it's time to spawn another emoji since that's a second. its 1 emoji per second
     spawnEmoji();
-  }
-}
-}
   // so here the emoji is being drawn
   imageMode(CENTER);
   image(currentEmoji, emojiX, emojiY, shrinkSize, shrinkSize); // i alterred the image with the coordinates and values
@@ -167,6 +164,8 @@ function drawGame() {
   textSize(20);
   text("Score: " + score, width/2, 40);
   text("Time: " + ceil(timeLeft), width/2, 80);
+}
+  }
 }
 
 // this essentially is the game over screen when everything is done.
