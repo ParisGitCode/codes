@@ -70,12 +70,10 @@ function mousePressed() {
   if (dist(mouseX, mouseY, width/2, 200) < 100) {
     score += perClick;
 
-    // Floating text
+    // the floating text or the mmoji's index. don't really think it's needed anymore because i already called it above but it breaks when i remove it.
     floatText = "+" + perClick;
     floatA = 255;
     floatY = 200;
-
-    // Switch to next emoji
-    currentIndex = (currentIndex + 1) % emojis.length;
+    currentIndex = (currentIndex + 1) % emojis.length; // the toggle between the first and the next
   }
 }
