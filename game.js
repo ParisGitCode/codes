@@ -11,10 +11,10 @@ let currentEmoji;
 let emojiX, emojiY;
 // this is the size before any shrinking animation happens
 let emojiSize = 120; // supposed to change the emoji size to 120 so it's not too small like before
-let shrinking = false; // i needs to be false, it checks whether the emoji is currently shrinking after being clicked
+let shrinking = false; // it needs to be false, it checks whether the emoji is currently shrinking after being clicked
 let shrinkSize = 120; //  this is not the same as emojiSize, i only made the number the same so it could shrink initially from this point.
 let score = 0;
-let timeLeft = 30; // 30 seciond countdown timer when this hits 0 then the game ends
+let timeLeft = 30; // 30 second countdown timer when this hits 0 then the game ends
 // letthegamesbegin controls which screen is shown, this is the "start" title screen
 let letthegamesbegin = "start";
 // stores the time ( i think in milliseconds? i think the base for p5.js is milliseconds but i'm not sure. use milliseconds anyway for everything)
@@ -138,14 +138,14 @@ function drawGame() {
 
   // so here the emoji is being drawn
   imageMode(CENTER);
-  image(currentEmoji, emojiX, emojiY, shrinkSize, shrinkSize); // i alterred the image with the coordinates and values
+  image(currentEmoji, emojiX, emojiY, shrinkSize, shrinkSize); // i altered the image with the coordinates and values
 
   //  this is the score and timer widget text, the size matters quite a bit i found that when i made the text size 40 it would keep overlapping the emojis.
-  // matter of fact the progress bar keeps overlapping the emojis when it hits the top sometimes but i'm not sure why, i've tried to fix it but it doesn't woork
-  fill(255);
+  // matter of fact the progress bar sometimes overlapping the emojis when it hits the top sometimes because of the size, but i'm unsure of where
+  // else to put the progress bar so i'll leave it where it is.
   textSize(20);
   text("Score: " + score, width/2, 40);
-  text("Time: " + ceil(timeLeft), width/2, 80);
+  text("Time: " + ceil(timeLeft), width/2, 80); // this ceil() function was rather new for me, it's short for ceiling and i'm using it so it rounds up the number
 }
 
 // this essentially is the game over screen when everything is done.
@@ -196,7 +196,7 @@ function startGame() {
   spawnEmoji();
 }
 
-// this function here resets the game after game over IT NEEDS TO BE HERE, it cant be above otherwise it wotn work
+// this function here resets the game after game over IT NEEDS TO BE HERE, it cant be above otherwise it won't work
 function resetGame() {
   score = 0;
   timeLeft = 30;
