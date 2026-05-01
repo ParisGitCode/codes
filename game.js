@@ -1,8 +1,6 @@
 //REMEMBER TO MANUALLY PUT EVEEYTHING FROM VISUAL STUDIO, IT'S NOT SYNCED
 
 // notes: add background motion later
-
-
 let clickSound;
 
 function preload() {
@@ -16,7 +14,14 @@ function mousePressed() {
   }
 }
 
+
 background(255, 105, 180); // for background colour
+function draw() {
+  let r = map(mouseX, 0, width, 0, 255);
+  let g = map(mouseY, 0, height, 0, 255);
+  let b = 150;
+
+  background(r, g, b) // trying to make the background colour change with the mouse movement.
 
 let score = 0;
 let perClick = 1;
