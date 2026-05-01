@@ -1,3 +1,7 @@
+// my clicker game!
+// instead of the aesthetically pleasing type of game i had set out before, i wanted to mix it with a bit of an arcade style game, which was the original goal
+// arcade games aren't mostly visual and i wanted something interactable.
+
 let clickSound; // sound that plays when the emoji is clicked (just to give feedback so the game feels more responsive)
 
 // the array that stores all my emoji images
@@ -21,11 +25,12 @@ let letthegamesbegin = "start";
   //when the last emoji spawned
 // I use this to spawn a new emoji every second
 let lastSpawnTime = 0;
+let backingTrack;
 
 function preload() {
   // load the click sound BEFORE the game starts
   clickSound = loadSound("click.mp3");
-
+  backingTrack = loadSound("backingtrack.mp3");
   // preload runs before setup and is where I load all external files
   // I’m loading all the emoji images here so the game doesn’t lag later
   for (let i = 1; i <= 9; i++) {
@@ -37,6 +42,8 @@ function setup() {
   createCanvas(400, 600); // main canvas and size
   textAlign(CENTER, CENTER); // text is aligned to the centre
   spawnEmoji(); // spawns the first emoji so the game isn’t empty at the start
+  backingTrack.loop(); // this is for my backing track
+  backingTrack.setVolume(0.5); // and this is the audio volume
 }
 
 function draw() {
@@ -56,6 +63,7 @@ function draw() {
     drawGame();
   } else if (letthegamesbegin == "gameover") {
     drawGameOver();
+    backingTrack.stop(); // adding this here to stop the backing track when the game is over
   }
 
   // this is me calling the progress bar so it shows up
