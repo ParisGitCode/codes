@@ -4,19 +4,40 @@
 // notes: make emojis bigger for gameplay so it can be clicked on easier
 // fix all the syntax errors ESPECIALLY REGARDING THE PROGRESS BAR!!
 // finish for may 1st so there's time to debug
+// REMOVE SECOND DRAW FUNCTION  TOMORROW ONLY ONE IS ALLOWED
 
-background(255, 105, 180); // for the initial background colour
-function draw() {
-  let r = map(mouseX, 0, width, 0, 255);
-  let g = map(mouseY, 0, height, 0, 255);
-  let b = 150;
-  background(r, g, b) // trying to make the background colour change with the mouse movement
+// for the initial background colour (this only runs once in setup, not here)
 let clickSound; // sound that plays when the emoji is clicked (just to give feedback so the game feels more responsive)
 
 // the array that stores all my emoji images
 // originally I loaded each one manually, but it got messy, so I switched to an array + loop
 let emojis = [];
-clickSound = loadSound("click.mp3"); // loads the click sound before the game starts
+
+function preload() {
+  // load the click sound BEFORE the game starts
+  clickSound = loadSound("click.mp3");
+
+  // preload runs before setup and is where I load all external files
+  // I’m loading all the emoji images here so the game doesn’t lag later
+  for (let i = 1; i <= 9; i++) {
+    emojis.push(loadImage("Emoji" + i + ".png")); // loads Emoji1.png to Emoji9.png automatically and increments
+  }
+}
+
+function draw() {
+  // background colour changes with mouse movement
+  // this was just for aesthetic reasons, also was my main idea to make a visual game anyway so i decided to keep it from my original code to
+  // make the game feel more active, it's more of a gradient rather than something that follows the mouse, but i like how it is
+  let r = map(mouseX, 0, width, 0, 255);
+  let g = map(mouseY, 0, height, 0, 255);
+  let b = 150;
+
+  background(r, g, b); // trying to make the background colour change with the mouse movement
+}
+
+  // the array that stores all my emoji images
+// originally I loaded each one manually, but it got messy, so I switched to an array + loop
+ // loads the click sound before the game starts
 
 function preload() {
   // preload runs before setup and is where I load all external files
@@ -76,15 +97,6 @@ function drawProgressBar() {
   fill(0, 255, 150);
   rect(barX, barY, progress, barH, 8);
 }
-function draw() {
-  // background colour changes with mouse movement
-  // this was just for aesthetic reasons, also was my main idea to make a visual game anyway so i decided to keep it from my original code to
-  // make the game feel more active, it's more of a gradient rather than something that follows the mouse, but i like how it is
-  let r = map(mouseX, 0, width, 0, 255);
-  let g = map(mouseY, 0, height, 0, 255);
-  let b = 150;
-  background(r, g, b);
-
   // choose what to draw based on the game state
   if (letthegamesbegin == "start") {
     drawStartScreen();
