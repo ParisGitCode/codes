@@ -192,6 +192,7 @@ function mousePressed() {
   }
   if (letthegamesbegin == "gameover") {
     resetGame();
+    backingTrack.loop();
     return;
   
   }
